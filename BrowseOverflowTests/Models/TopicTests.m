@@ -7,6 +7,7 @@
 //
 
 #import <XCTest/XCTest.h>
+#import "Topic.h"
 
 @interface TopicTests : XCTestCase
 

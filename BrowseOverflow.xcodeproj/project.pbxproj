@@ -15,6 +15,8 @@
 		D565214B1C86699D008B58E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D565214A1C86699D008B58E5 /* Assets.xcassets */; };
 		D565214E1C86699D008B58E5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D565214C1C86699D008B58E5 /* LaunchScreen.storyboard */; };
 		D56521681C866B0C008B58E5 /* TopicTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D56521671C866B0C008B58E5 /* TopicTests.m */; };
+		D565216B1C866F59008B58E5 /* Topic.m in Sources */ = {isa = PBXBuildFile; fileRef = D565216A1C866F59008B58E5 /* Topic.m */; };
+		D565216C1C866F59008B58E5 /* Topic.m in Sources */ = {isa = PBXBuildFile; fileRef = D565216A1C866F59008B58E5 /* Topic.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +45,8 @@
 		D56521541C86699D008B58E5 /* BrowseOverflowTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BrowseOverflowTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D565215A1C86699D008B58E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D56521671C866B0C008B58E5 /* TopicTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TopicTests.m; path = Models/TopicTests.m; sourceTree = "<group>"; };
+		D56521691C866F59008B58E5 /* Topic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Topic.h; path = Models/Topic.h; sourceTree = "<group>"; };
+		D565216A1C866F59008B58E5 /* Topic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Topic.m; path = Models/Topic.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +124,8 @@
 		D56521631C866ABB008B58E5 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				D56521691C866F59008B58E5 /* Topic.h */,
+				D565216A1C866F59008B58E5 /* Topic.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -235,6 +241,7 @@
 				D56521401C86699D008B58E5 /* AppDelegate.m in Sources */,
 				D56521431C86699D008B58E5 /* MasterViewController.m in Sources */,
 				D565213D1C86699D008B58E5 /* main.m in Sources */,
+				D565216B1C866F59008B58E5 /* Topic.m in Sources */,
 				D56521461C86699D008B58E5 /* DetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -244,6 +251,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D56521681C866B0C008B58E5 /* TopicTests.m in Sources */,
+				D565216C1C866F59008B58E5 /* Topic.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
