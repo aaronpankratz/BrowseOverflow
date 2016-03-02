@@ -9,5 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface Topic : NSObject
+@property (readonly) NSString *name;
 
+- (instancetype)initWithName:(NSString *)newName;
 @end
