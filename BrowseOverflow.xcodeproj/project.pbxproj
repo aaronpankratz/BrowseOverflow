@@ -14,6 +14,7 @@
 		D56521491C86699D008B58E5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D56521471C86699D008B58E5 /* Main.storyboard */; };
 		D565214B1C86699D008B58E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D565214A1C86699D008B58E5 /* Assets.xcassets */; };
 		D565214E1C86699D008B58E5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D565214C1C86699D008B58E5 /* LaunchScreen.storyboard */; };
+		D56521681C866B0C008B58E5 /* TopicTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D56521671C866B0C008B58E5 /* TopicTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +42,7 @@
 		D565214F1C86699D008B58E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D56521541C86699D008B58E5 /* BrowseOverflowTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BrowseOverflowTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D565215A1C86699D008B58E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D56521671C866B0C008B58E5 /* TopicTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TopicTests.m; path = Models/TopicTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +84,7 @@
 		D565213A1C86699D008B58E5 /* BrowseOverflow */ = {
 			isa = PBXGroup;
 			children = (
+				D56521631C866ABB008B58E5 /* Models */,
 				D565213E1C86699D008B58E5 /* AppDelegate.h */,
 				D565213F1C86699D008B58E5 /* AppDelegate.m */,
 				D56521411C86699D008B58E5 /* MasterViewController.h */,
@@ -108,9 +111,25 @@
 		D56521571C86699D008B58E5 /* BrowseOverflowTests */ = {
 			isa = PBXGroup;
 			children = (
+				D56521661C866AED008B58E5 /* Models */,
 				D565215A1C86699D008B58E5 /* Info.plist */,
 			);
 			path = BrowseOverflowTests;
+			sourceTree = "<group>";
+		};
+		D56521631C866ABB008B58E5 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		D56521661C866AED008B58E5 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				D56521671C866B0C008B58E5 /* TopicTests.m */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -224,6 +243,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D56521681C866B0C008B58E5 /* TopicTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
