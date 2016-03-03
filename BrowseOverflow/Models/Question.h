@@ -9,5 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface Question : NSObject
-- (NSDate *)date;
+@property (nonatomic) NSDate *date;
+@property (nonatomic) NSUInteger score;
+@property (nonatomic) NSString *title;
 @end

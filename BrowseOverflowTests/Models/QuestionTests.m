@@ -20,9 +20,13 @@
 - (void)setUp {
     [super setUp];
     question = [Question new];
+    question.date = [NSDate distantPast];
+    question.title = @"Do iPhones also dream of electric sheep?";
+    question.score = 42;
 }
 
 - (void)tearDown {
+    question = nil;
     [super tearDown];
 }
 
@@ -31,7 +35,17 @@
 }
 
 - (void)testThatQuestionHasADate {
+    NSDate *testDate = [NSDate distantPast];
+    question.date = testDate;
     XCTAssertTrue([question.date isKindOfClass:[NSDate class]], @"Question needs to provide its date");
+}
+
+- (void)testQuestionsKeepScore {
+    XCTAssertEqual(question.score, 42, @"Questions need a numeric score");
+}
+
+- (void)testQuestionHasATitle {
+    XCTAssertEqualObjects(question.title, @"Do iPhones also dream of electric sheep?", @"Question should know its title");
 }
 
 @end
