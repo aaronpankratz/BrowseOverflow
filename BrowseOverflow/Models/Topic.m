@@ -10,11 +10,19 @@
 
 @implementation Topic
 @synthesize name;
+@synthesize tag;
 
-- (instancetype)initWithName:(NSString *)newName {
+- (instancetype)initWithName:(NSString *)newName
+                         tag:(NSString *)newTag {
     if (self = [super init]) {
         name = [newName copy];
+        tag = [newTag copy];
     }
     return self;
 }
+
+- (NSArray *)recentQuestions {
+    return [NSArray array];
+}
+
 @end

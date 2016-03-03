@@ -9,30 +9,38 @@
 #import <XCTest/XCTest.h>
 #import "Topic.h"
 
-@interface TopicTests : XCTestCase
-
+@interface TopicTests : XCTestCase {
+    Topic *topic;
+}
 @end
 
 @implementation TopicTests
 
 - (void)setUp {
     [super setUp];
-    // Put setup code here. This method is called before the invocation of each test method in the class.
+    topic = [[Topic alloc] initWithName:@"iPhone"
+                                    tag:@"iphone"];
 }
 
 - (void)tearDown {
-    // Put teardown code here. This method is called after the invocation of each test method in the class.
+    topic = nil;
     [super tearDown];
 }
 
 - (void)testThatTopicExists {
-    Topic *newTopic = [Topic new];
-    XCTAssertNotNil(newTopic, @"should be able to create a Topic instance");
+    XCTAssertNotNil(topic, @"should be able to create a Topic instance");
 }
 
 - (void)testThatTopicCanBeNamed {
-    Topic *newTopic = [[Topic alloc] initWithName:@"iPhone"];
-    XCTAssertEqualObjects(newTopic.name, @"iPhone", @"the Topic should have the name I gave it");
+    XCTAssertEqualObjects(topic.name, @"iPhone", @"the Topic should have the name I gave it");
+}
+
+- (void)testThatTopicHasATag {
+    XCTAssertEqualObjects(topic.tag, @"iphone", @"the Topic should have the tag I gave it");
+}
+
+- (void)testForAListOfQuestions {
+    XCTAssertTrue([[topic recentQuestions] isKindOfClass:[NSArray class]], @"topics should provide a list of recent questions");
 }
 
 @end
