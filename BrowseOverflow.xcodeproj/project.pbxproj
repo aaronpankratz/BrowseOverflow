@@ -23,6 +23,9 @@
 		D56521761C87FEFE008B58E5 /* PersonTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D56521751C87FEFE008B58E5 /* PersonTests.m */; };
 		D56521791C87FFED008B58E5 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = D56521781C87FFED008B58E5 /* Person.m */; };
 		D565217A1C87FFED008B58E5 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = D56521781C87FFED008B58E5 /* Person.m */; };
+		D565217C1C8B354C008B58E5 /* AnswerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D565217B1C8B354C008B58E5 /* AnswerTests.m */; };
+		D565217F1C8B3BA5008B58E5 /* Answer.m in Sources */ = {isa = PBXBuildFile; fileRef = D565217E1C8B3BA5008B58E5 /* Answer.m */; };
+		D56521801C8B3BA5008B58E5 /* Answer.m in Sources */ = {isa = PBXBuildFile; fileRef = D565217E1C8B3BA5008B58E5 /* Answer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +62,9 @@
 		D56521751C87FEFE008B58E5 /* PersonTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PersonTests.m; path = Models/PersonTests.m; sourceTree = "<group>"; };
 		D56521771C87FFED008B58E5 /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Person.h; path = Models/Person.h; sourceTree = "<group>"; };
 		D56521781C87FFED008B58E5 /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Person.m; path = Models/Person.m; sourceTree = "<group>"; };
+		D565217B1C8B354C008B58E5 /* AnswerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AnswerTests.m; path = Models/AnswerTests.m; sourceTree = "<group>"; };
+		D565217D1C8B3BA5008B58E5 /* Answer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Answer.h; path = Models/Answer.h; sourceTree = "<group>"; };
+		D565217E1C8B3BA5008B58E5 /* Answer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Answer.m; path = Models/Answer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +148,8 @@
 				D56521721C867977008B58E5 /* Question.m */,
 				D56521771C87FFED008B58E5 /* Person.h */,
 				D56521781C87FFED008B58E5 /* Person.m */,
+				D565217D1C8B3BA5008B58E5 /* Answer.h */,
+				D565217E1C8B3BA5008B58E5 /* Answer.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -152,6 +160,7 @@
 				D56521671C866B0C008B58E5 /* TopicTests.m */,
 				D565216F1C867839008B58E5 /* QuestionTests.m */,
 				D56521751C87FEFE008B58E5 /* PersonTests.m */,
+				D565217B1C8B354C008B58E5 /* AnswerTests.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -259,6 +268,7 @@
 				D56521401C86699D008B58E5 /* AppDelegate.m in Sources */,
 				D56521431C86699D008B58E5 /* MasterViewController.m in Sources */,
 				D56521791C87FFED008B58E5 /* Person.m in Sources */,
+				D565217F1C8B3BA5008B58E5 /* Answer.m in Sources */,
 				D565213D1C86699D008B58E5 /* main.m in Sources */,
 				D56521731C867977008B58E5 /* Question.m in Sources */,
 				D565216B1C866F59008B58E5 /* Topic.m in Sources */,
@@ -270,8 +280,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D565217C1C8B354C008B58E5 /* AnswerTests.m in Sources */,
 				D565217A1C87FFED008B58E5 /* Person.m in Sources */,
 				D56521681C866B0C008B58E5 /* TopicTests.m in Sources */,
+				D56521801C8B3BA5008B58E5 /* Answer.m in Sources */,
 				D56521741C867977008B58E5 /* Question.m in Sources */,
 				D56521701C867839008B58E5 /* QuestionTests.m in Sources */,
 				D565216C1C866F59008B58E5 /* Topic.m in Sources */,
