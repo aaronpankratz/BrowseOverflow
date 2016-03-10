@@ -40,6 +40,9 @@
     if (questions == nil) {
         [self tellDelegateAboutQuestionSearchError:error];
     }
+    else {
+        [delegate didReceiveQuestions:questions];
+    }
 }
 
 - (void)tellDelegateAboutQuestionSearchError:(NSError *)error {

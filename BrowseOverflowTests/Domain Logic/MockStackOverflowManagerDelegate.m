@@ -8,10 +8,20 @@
 
 #import "MockStackOverflowManagerDelegate.h"
 
-@implementation MockStackOverflowManagerDelegate
+@implementation MockStackOverflowManagerDelegate {
+    NSArray *receivedQuestions;
+}
 
 - (void)fetchingQuestionsFailedWithError:(NSError *)error {
     self.fetchError = error;
+}
+
+- (void)didReceiveQuestions:(NSArray *)questions {
+    receivedQuestions = questions;
+}
+
+- (NSArray *)receivedQuestions {
+    return receivedQuestions;
 }
 
 @end

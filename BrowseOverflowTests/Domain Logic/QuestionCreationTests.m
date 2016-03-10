@@ -12,13 +12,15 @@
 #import "MockStackOverflowCommunicator.h"
 #import "Topic.h"
 #import "FakeQuestionBuilder.h"
+#import "Question.h"
 
 
 @interface QuestionCreationTests : XCTestCase {
     StackOverflowManager *mgr;
     MockStackOverflowManagerDelegate *delegate;
     NSError *underlyingError;
-    FakeQuestionBuilder *builder;
+    FakeQuestionBuilder *questionBuilder;
+    NSArray *questionArray;
 }
 @end
 
@@ -30,16 +32,37 @@
     delegate = [MockStackOverflowManagerDelegate new];
     XCTAssertNoThrow(mgr.delegate = delegate, @"Object conforming to the delegate protocol should be used as delegate");
     underlyingError = [NSError errorWithDomain:@"Test domain" code:0 userInfo:nil];
-    builder = [FakeQuestionBuilder new];
-    mgr.questionBuilder = builder;
+    questionBuilder = [FakeQuestionBuilder new];
+    mgr.questionBuilder = questionBuilder;
+    Question *question = [Question new];
+    questionArray = [NSArray arrayWithObject:question];
 }
 
 - (void)tearDown {
     mgr = nil;
     delegate = nil;
     underlyingError = nil;
-    builder = nil;
+    questionBuilder = nil;
+    questionArray = nil;
     [super tearDown];
+}
+
+- (void)testEmptyArrayIsPassedToDelegate {
+    questionBuilder.arrayToReturn = [NSArray array];
+    [mgr receivedQuestionsJSON:@"Fake JSON"];
+    XCTAssertEqualObjects([delegate receivedQuestions], [NSArray array], @"returning an empty array is not an error");
+}
+
+- (void)testDelegateReceivesTheQuestionsDiscoveredByManager {
+    questionBuilder.arrayToReturn = questionArray;
+    [mgr receivedQuestionsJSON:@"Fake JSON"];
+    XCTAssertEqualObjects([delegate receivedQuestions], questionArray, @"The manager should have sent its questions to the delegate");
+}
+
+- (void)testDelegateNotToldAboutErrorWhenQuestionsReceived {
+    questionBuilder.arrayToReturn = questionArray;
+    [mgr receivedQuestionsJSON:@"Fake JSON"];
+    XCTAssertNil([delegate fetchError], @"No error should be received on success");
 }
 
 - (void)testNonConformingObjectCannotBeDelegate {
@@ -70,12 +93,12 @@
 
 - (void)testQuestionJSONIsPassedToQuestionBuilder {
     [mgr receivedQuestionsJSON:@"Fake JSON"];
-    XCTAssertEqualObjects(builder.JSON, @"Fake JSON", @"downloaded JSON is sent to the builder");
+    XCTAssertEqualObjects(questionBuilder.JSON, @"Fake JSON", @"downloaded JSON is sent to the builder");
 }
 
 - (void)testDelegateNotifiedOfErrorWhenQuestionBuilderFails {
-    builder.arrayToReturn = nil;
-    builder.errorToSet = underlyingError;
+    questionBuilder.arrayToReturn = nil;
+    questionBuilder.errorToSet = underlyingError;
     [mgr receivedQuestionsJSON:@"Fake JSON"];
     XCTAssertNotNil([[[delegate fetchError] userInfo] objectForKey:NSUnderlyingErrorKey], @"the delegate should have found out about the error");
 }
