@@ -16,6 +16,7 @@
 
 - (NSArray *)questionsFromJSON:(NSString *)objectNotation error:(NSError *__autoreleasing *)error {
     self.JSON = objectNotation;
+    *error = errorToSet;
     return arrayToReturn;
 }
 

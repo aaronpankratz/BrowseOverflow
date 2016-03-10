@@ -16,6 +16,8 @@
 
 @interface QuestionCreationTests : XCTestCase {
     StackOverflowManager *mgr;
+    MockStackOverflowManagerDelegate *delegate;
+    NSError *underlyingError;
 }
 @end
 
@@ -24,20 +26,20 @@
 - (void)setUp {
     [super setUp];
     mgr = [StackOverflowManager new];
+    delegate = [MockStackOverflowManagerDelegate new];
+    XCTAssertNoThrow(mgr.delegate = delegate, @"Object conforming to the delegate protocol should be used as delegate");
+    underlyingError = [NSError errorWithDomain:@"Test domain" code:0 userInfo:nil];
 }
 
 - (void)tearDown {
     mgr = nil;
+    delegate = nil;
+    underlyingError = nil;
     [super tearDown];
 }
 
 - (void)testNonConformingObjectCannotBeDelegate {
     XCTAssertThrows(mgr.delegate = (id<StackOverflowManagerDelegate>) [NSNull null], @"NSNull should not be used for the delegate as doesn't conform to the delegate protocol");
-}
-
-- (void)testConformingObjectCanBeDelegate {
-    id <StackOverflowManagerDelegate> delegate = [MockStackOverflowManagerDelegate new];
-    XCTAssertNoThrow(mgr.delegate = delegate, @"Object conforming to the delegate protocol should be used as delegate");
 }
 
 - (void)testManagerAcceptsNilAsADelegate {
@@ -53,17 +55,11 @@
 }
 
 - (void)testErrorReturnedToDelegateIsNotErrorNotifiedByCommunicator {
-    MockStackOverflowManagerDelegate *delegate = [MockStackOverflowManagerDelegate new];
-    mgr.delegate = delegate;
-    NSError *underlyingError = [NSError errorWithDomain:@"Test domain" code:0 userInfo:nil];
     [mgr searchingForQuestionsFailedWithError:underlyingError];
     XCTAssertFalse(underlyingError == [delegate fetchError], @"error should be at the correct level of abstraction");
 }
 
 - (void)testErrorReturnedToDelegateDocumentsUnderlyingError {
-    MockStackOverflowManagerDelegate *delegate = [MockStackOverflowManagerDelegate new];
-    mgr.delegate = delegate;
-    NSError *underlyingError = [NSError errorWithDomain:@"Test domain" code:0 userInfo:nil];
     [mgr searchingForQuestionsFailedWithError:underlyingError];
     XCTAssertEqualObjects([[[delegate fetchError] userInfo] objectForKey:NSUnderlyingErrorKey], underlyingError, @"The underlying error should be available to client code");
 }
@@ -73,6 +69,16 @@
     mgr.questionBuilder = builder;
     [mgr receivedQuestionsJSON:@"Fake JSON"];
     XCTAssertEqualObjects(builder.JSON, @"Fake JSON", @"downloaded JSON is sent to the builder");
+    mgr.questionBuilder = nil;
+}
+
+- (void)testDelegateNotifiedOfErrorWhenQuestionBuilderFails {
+    FakeQuestionBuilder *builder = [FakeQuestionBuilder new];
+    builder.arrayToReturn = nil;
+    builder.errorToSet = underlyingError;
+    mgr.questionBuilder = builder;
+    [mgr receivedQuestionsJSON:@"Fake JSON"];
+    XCTAssertNotNil([[[delegate fetchError] userInfo] objectForKey:NSUnderlyingErrorKey], @"the delegate should have found out about the error");
     mgr.questionBuilder = nil;
 }
 
