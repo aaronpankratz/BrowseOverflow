@@ -10,6 +10,7 @@
 
 @class StackOverflowCommunicator;
 @class Topic;
+@class QuestionBuilder;
 
 extern NSString *StackOverflowManagerError;
 
@@ -24,7 +25,9 @@ enum {
 @interface StackOverflowManager : NSObject
 @property (weak, nonatomic) id <StackOverflowManagerDelegate> delegate;
 @property (strong) id communicator;
+@property (strong) QuestionBuilder *questionBuilder;
 
 - (void)fetchQuestionsOnTopic:(Topic *)topic;
 - (void)searchingForQuestionsFailedWithError:(NSError *)error;
+- (void)receivedQuestionsJSON:(NSString *)objectNotation;
 @end

@@ -9,10 +9,12 @@
 #import "StackOverflowManager.h"
 #import "StackOverflowCommunicator.h"
 #import "Topic.h"
+#import "QuestionBuilder.h"
 
 @implementation StackOverflowManager
 @synthesize delegate;
 @synthesize communicator;
+@synthesize questionBuilder;
 
 - (void)setDelegate:(id<StackOverflowManagerDelegate>)newDelegate {
     if (newDelegate != nil
@@ -34,6 +36,10 @@
                                                    code:StackOverflowManagerErrorQuestionSearchCode
                                                userInfo:errorInfo];
     [delegate fetchingQuestionsFailedWithError:reportableError];
+}
+
+- (void)receivedQuestionsJSON:(NSString *)objectNotation {
+    NSArray *questions = [questionBuilder questionsFromJSON:objectNotation error:NULL];
 }
 
 @end

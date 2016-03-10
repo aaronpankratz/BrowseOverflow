@@ -11,6 +11,8 @@
 #import "MockStackOverflowManagerDelegate.h"
 #import "MockStackOverflowCommunicator.h"
 #import "Topic.h"
+#import "FakeQuestionBuilder.h"
+
 
 @interface QuestionCreationTests : XCTestCase {
     StackOverflowManager *mgr;
@@ -64,6 +66,14 @@
     NSError *underlyingError = [NSError errorWithDomain:@"Test domain" code:0 userInfo:nil];
     [mgr searchingForQuestionsFailedWithError:underlyingError];
     XCTAssertEqualObjects([[[delegate fetchError] userInfo] objectForKey:NSUnderlyingErrorKey], underlyingError, @"The underlying error should be available to client code");
+}
+
+- (void)testQuestionJSONIsPassedToQuestionBuilder {
+    FakeQuestionBuilder *builder = [FakeQuestionBuilder new];
+    mgr.questionBuilder = builder;
+    [mgr receivedQuestionsJSON:@"Fake JSON"];
+    XCTAssertEqualObjects(builder.JSON, @"Fake JSON", @"downloaded JSON is sent to the builder");
+    mgr.questionBuilder = nil;
 }
 
 @end
