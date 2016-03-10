@@ -31,26 +31,26 @@
 }
 
 - (void)searchingForQuestionsFailedWithError:(NSError *)error {
-    NSDictionary *errorInfo = [NSDictionary dictionaryWithObject:error forKey:NSUnderlyingErrorKey];
-    NSError *reportableError = [NSError errorWithDomain:StackOverflowManagerError
-                                                   code:StackOverflowManagerErrorQuestionSearchCode
-                                               userInfo:errorInfo];
-    [delegate fetchingQuestionsFailedWithError:reportableError];
+    [self tellDelegateAboutQuestionSearchError:error];
 }
 
 - (void)receivedQuestionsJSON:(NSString *)objectNotation {
     NSError *error;
     NSArray *questions = [questionBuilder questionsFromJSON:objectNotation error:&error];
     if (questions == nil) {
-        NSDictionary *errorInfo;
-        if (error != nil) {
-            errorInfo = [NSDictionary dictionaryWithObject:error forKey:NSUnderlyingErrorKey];
-        }
-        NSError *reportableError = [NSError errorWithDomain:StackOverflowManagerError
-                                                       code:StackOverflowManagerErrorQuestionSearchCode
-                                                   userInfo:errorInfo];
-        [delegate fetchingQuestionsFailedWithError:reportableError];
+        [self tellDelegateAboutQuestionSearchError:error];
     }
+}
+
+- (void)tellDelegateAboutQuestionSearchError:(NSError *)error {
+    NSDictionary *errorInfo;
+    if (error != nil) {
+        errorInfo = [NSDictionary dictionaryWithObject:error forKey:NSUnderlyingErrorKey];
+    }
+    NSError *reportableError = [NSError errorWithDomain:StackOverflowManagerError
+                                                   code:StackOverflowManagerErrorQuestionSearchCode
+                                               userInfo:errorInfo];
+    [delegate fetchingQuestionsFailedWithError:reportableError];
 }
 
 @end
