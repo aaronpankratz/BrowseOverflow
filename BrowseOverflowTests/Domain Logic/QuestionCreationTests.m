@@ -9,6 +9,8 @@
 #import <XCTest/XCTest.h>
 #import "StackOverflowManager.h"
 #import "MockStackOverflowManagerDelegate.h"
+#import "MockStackOverflowCommunicator.h"
+#import "Topic.h"
 
 @interface QuestionCreationTests : XCTestCase {
     StackOverflowManager *mgr;
@@ -38,6 +40,30 @@
 
 - (void)testManagerAcceptsNilAsADelegate {
     XCTAssertNoThrow(mgr.delegate = nil, @"It should be acceptable to use nil as an object's delegate");
+}
+
+- (void)testAskingForQuestionsMeansRequestingData {
+    MockStackOverflowCommunicator *communicator = [MockStackOverflowCommunicator new];
+    mgr.communicator = communicator;
+    Topic *topic = [[Topic alloc] initWithName:@"iPhone" tag:@"iphone"];
+    [mgr fetchQuestionsOnTopic:topic];
+    XCTAssertTrue([communicator wasAskedToFetchQuestions], @"The communicator should need to fetch data");
+}
+
+- (void)testErrorReturnedToDelegateIsNotErrorNotifiedByCommunicator {
+    MockStackOverflowManagerDelegate *delegate = [MockStackOverflowManagerDelegate new];
+    mgr.delegate = delegate;
+    NSError *underlyingError = [NSError errorWithDomain:@"Test domain" code:0 userInfo:nil];
+    [mgr searchingForQuestionsFailedWithError:underlyingError];
+    XCTAssertFalse(underlyingError == [delegate fetchError], @"error should be at the correct level of abstraction");
+}
+
+- (void)testErrorReturnedToDelegateDocumentsUnderlyingError {
+    MockStackOverflowManagerDelegate *delegate = [MockStackOverflowManagerDelegate new];
+    mgr.delegate = delegate;
+    NSError *underlyingError = [NSError errorWithDomain:@"Test domain" code:0 userInfo:nil];
+    [mgr searchingForQuestionsFailedWithError:underlyingError];
+    XCTAssertEqualObjects([[[delegate fetchError] userInfo] objectForKey:NSUnderlyingErrorKey], underlyingError, @"The underlying error should be available to client code");
 }
 
 @end
