@@ -26,6 +26,11 @@
 		D565217C1C8B354C008B58E5 /* AnswerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D565217B1C8B354C008B58E5 /* AnswerTests.m */; };
 		D565217F1C8B3BA5008B58E5 /* Answer.m in Sources */ = {isa = PBXBuildFile; fileRef = D565217E1C8B3BA5008B58E5 /* Answer.m */; };
 		D56521801C8B3BA5008B58E5 /* Answer.m in Sources */ = {isa = PBXBuildFile; fileRef = D565217E1C8B3BA5008B58E5 /* Answer.m */; };
+		D56521871C8CFDE8008B58E5 /* StackOverflowManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D56521861C8CFDE8008B58E5 /* StackOverflowManager.m */; };
+		D56521881C8CFDE8008B58E5 /* StackOverflowManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D56521861C8CFDE8008B58E5 /* StackOverflowManager.m */; };
+		D565218C1C8CFE8F008B58E5 /* MockStackOverflowManagerDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D565218B1C8CFE8F008B58E5 /* MockStackOverflowManagerDelegate.m */; };
+		D565218D1C8CFE8F008B58E5 /* MockStackOverflowManagerDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D565218B1C8CFE8F008B58E5 /* MockStackOverflowManagerDelegate.m */; };
+		D56521951C911A39008B58E5 /* QuestionCreationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D56521941C911A39008B58E5 /* QuestionCreationTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +70,11 @@
 		D565217B1C8B354C008B58E5 /* AnswerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AnswerTests.m; path = Models/AnswerTests.m; sourceTree = "<group>"; };
 		D565217D1C8B3BA5008B58E5 /* Answer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Answer.h; path = Models/Answer.h; sourceTree = "<group>"; };
 		D565217E1C8B3BA5008B58E5 /* Answer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Answer.m; path = Models/Answer.m; sourceTree = "<group>"; };
+		D56521851C8CFDE8008B58E5 /* StackOverflowManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StackOverflowManager.h; path = "Domain Logic/StackOverflowManager.h"; sourceTree = "<group>"; };
+		D56521861C8CFDE8008B58E5 /* StackOverflowManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StackOverflowManager.m; path = "Domain Logic/StackOverflowManager.m"; sourceTree = "<group>"; };
+		D565218A1C8CFE8F008B58E5 /* MockStackOverflowManagerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MockStackOverflowManagerDelegate.h; path = "Domain Logic/MockStackOverflowManagerDelegate.h"; sourceTree = "<group>"; };
+		D565218B1C8CFE8F008B58E5 /* MockStackOverflowManagerDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MockStackOverflowManagerDelegate.m; path = "Domain Logic/MockStackOverflowManagerDelegate.m"; sourceTree = "<group>"; };
+		D56521941C911A39008B58E5 /* QuestionCreationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QuestionCreationTests.m; path = "Domain Logic/QuestionCreationTests.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +116,7 @@
 		D565213A1C86699D008B58E5 /* BrowseOverflow */ = {
 			isa = PBXGroup;
 			children = (
+				D56521831C8BE6E9008B58E5 /* Domain Logic */,
 				D56521631C866ABB008B58E5 /* Models */,
 				D565213E1C86699D008B58E5 /* AppDelegate.h */,
 				D565213F1C86699D008B58E5 /* AppDelegate.m */,
@@ -133,6 +144,7 @@
 		D56521571C86699D008B58E5 /* BrowseOverflowTests */ = {
 			isa = PBXGroup;
 			children = (
+				D56521841C8BE715008B58E5 /* Domain Logic */,
 				D56521661C866AED008B58E5 /* Models */,
 				D565215A1C86699D008B58E5 /* Info.plist */,
 			);
@@ -163,6 +175,25 @@
 				D565217B1C8B354C008B58E5 /* AnswerTests.m */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		D56521831C8BE6E9008B58E5 /* Domain Logic */ = {
+			isa = PBXGroup;
+			children = (
+				D56521851C8CFDE8008B58E5 /* StackOverflowManager.h */,
+				D56521861C8CFDE8008B58E5 /* StackOverflowManager.m */,
+			);
+			name = "Domain Logic";
+			sourceTree = "<group>";
+		};
+		D56521841C8BE715008B58E5 /* Domain Logic */ = {
+			isa = PBXGroup;
+			children = (
+				D565218A1C8CFE8F008B58E5 /* MockStackOverflowManagerDelegate.h */,
+				D565218B1C8CFE8F008B58E5 /* MockStackOverflowManagerDelegate.m */,
+				D56521941C911A39008B58E5 /* QuestionCreationTests.m */,
+			);
+			name = "Domain Logic";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -268,10 +299,12 @@
 				D56521401C86699D008B58E5 /* AppDelegate.m in Sources */,
 				D56521431C86699D008B58E5 /* MasterViewController.m in Sources */,
 				D56521791C87FFED008B58E5 /* Person.m in Sources */,
+				D565218C1C8CFE8F008B58E5 /* MockStackOverflowManagerDelegate.m in Sources */,
 				D565217F1C8B3BA5008B58E5 /* Answer.m in Sources */,
 				D565213D1C86699D008B58E5 /* main.m in Sources */,
 				D56521731C867977008B58E5 /* Question.m in Sources */,
 				D565216B1C866F59008B58E5 /* Topic.m in Sources */,
+				D56521871C8CFDE8008B58E5 /* StackOverflowManager.m in Sources */,
 				D56521461C86699D008B58E5 /* DetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -280,12 +313,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D56521951C911A39008B58E5 /* QuestionCreationTests.m in Sources */,
 				D565217C1C8B354C008B58E5 /* AnswerTests.m in Sources */,
 				D565217A1C87FFED008B58E5 /* Person.m in Sources */,
 				D56521681C866B0C008B58E5 /* TopicTests.m in Sources */,
 				D56521801C8B3BA5008B58E5 /* Answer.m in Sources */,
+				D565218D1C8CFE8F008B58E5 /* MockStackOverflowManagerDelegate.m in Sources */,
 				D56521741C867977008B58E5 /* Question.m in Sources */,
 				D56521701C867839008B58E5 /* QuestionTests.m in Sources */,
+				D56521881C8CFDE8008B58E5 /* StackOverflowManager.m in Sources */,
 				D565216C1C866F59008B58E5 /* Topic.m in Sources */,
 				D56521761C87FEFE008B58E5 /* PersonTests.m in Sources */,
 			);
