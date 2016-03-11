@@ -28,7 +28,7 @@
 		D56521881C8CFDE8008B58E5 /* StackOverflowManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D56521861C8CFDE8008B58E5 /* StackOverflowManager.m */; };
 		D565218C1C8CFE8F008B58E5 /* MockStackOverflowManagerDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D565218B1C8CFE8F008B58E5 /* MockStackOverflowManagerDelegate.m */; };
 		D565218D1C8CFE8F008B58E5 /* MockStackOverflowManagerDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D565218B1C8CFE8F008B58E5 /* MockStackOverflowManagerDelegate.m */; };
-		D56521951C911A39008B58E5 /* QuestionCreationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D56521941C911A39008B58E5 /* QuestionCreationTests.m */; };
+		D56521951C911A39008B58E5 /* QuestionCreationWorkflowTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D56521941C911A39008B58E5 /* QuestionCreationWorkflowTests.m */; };
 		D565219B1C911DB6008B58E5 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D56521971C911DB6008B58E5 /* MasterViewController.m */; };
 		D565219C1C911DB6008B58E5 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D56521971C911DB6008B58E5 /* MasterViewController.m */; };
 		D565219D1C911DB6008B58E5 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D56521991C911DB6008B58E5 /* DetailViewController.m */; };
@@ -78,7 +78,7 @@
 		D56521861C8CFDE8008B58E5 /* StackOverflowManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StackOverflowManager.m; path = "Domain Logic/StackOverflowManager.m"; sourceTree = "<group>"; };
 		D565218A1C8CFE8F008B58E5 /* MockStackOverflowManagerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MockStackOverflowManagerDelegate.h; path = "Domain Logic/MockStackOverflowManagerDelegate.h"; sourceTree = "<group>"; };
 		D565218B1C8CFE8F008B58E5 /* MockStackOverflowManagerDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MockStackOverflowManagerDelegate.m; path = "Domain Logic/MockStackOverflowManagerDelegate.m"; sourceTree = "<group>"; };
-		D56521941C911A39008B58E5 /* QuestionCreationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QuestionCreationTests.m; path = "Domain Logic/QuestionCreationTests.m"; sourceTree = "<group>"; };
+		D56521941C911A39008B58E5 /* QuestionCreationWorkflowTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QuestionCreationWorkflowTests.m; path = "Domain Logic/QuestionCreationWorkflowTests.m"; sourceTree = "<group>"; };
 		D56521971C911DB6008B58E5 /* MasterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MasterViewController.m; path = Controllers/MasterViewController.m; sourceTree = "<group>"; };
 		D56521981C911DB6008B58E5 /* MasterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MasterViewController.h; path = Controllers/MasterViewController.h; sourceTree = "<group>"; };
 		D56521991C911DB6008B58E5 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DetailViewController.m; path = Controllers/DetailViewController.m; sourceTree = "<group>"; };
@@ -208,7 +208,7 @@
 			children = (
 				D565218A1C8CFE8F008B58E5 /* MockStackOverflowManagerDelegate.h */,
 				D565218B1C8CFE8F008B58E5 /* MockStackOverflowManagerDelegate.m */,
-				D56521941C911A39008B58E5 /* QuestionCreationTests.m */,
+				D56521941C911A39008B58E5 /* QuestionCreationWorkflowTests.m */,
 			);
 			name = "Domain Logic";
 			sourceTree = "<group>";
@@ -379,7 +379,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D56521951C911A39008B58E5 /* QuestionCreationTests.m in Sources */,
+				D56521951C911A39008B58E5 /* QuestionCreationWorkflowTests.m in Sources */,
 				D565217C1C8B354C008B58E5 /* AnswerTests.m in Sources */,
 				D565217A1C87FFED008B58E5 /* Person.m in Sources */,
 				D56521681C866B0C008B58E5 /* TopicTests.m in Sources */,

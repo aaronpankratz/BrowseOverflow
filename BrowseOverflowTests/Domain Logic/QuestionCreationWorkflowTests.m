@@ -15,7 +15,7 @@
 #import "Question.h"
 
 
-@interface QuestionCreationTests : XCTestCase {
+@interface QuestionCreationWorkflowTests : XCTestCase {
     StackOverflowManager *mgr;
     MockStackOverflowManagerDelegate *delegate;
     NSError *underlyingError;
@@ -24,7 +24,7 @@
 }
 @end
 
-@implementation QuestionCreationTests
+@implementation QuestionCreationWorkflowTests
 
 - (void)setUp {
     [super setUp];
